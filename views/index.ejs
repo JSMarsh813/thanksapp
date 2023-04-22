@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pile ALL the love on debs!</title>
+   
+    <!-----GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+  <!----Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <!----stylesheet Link-->
+    <link rel="stylesheet" href="/style.css"> <!---express knows to go in public folder-->
+</head>
+
+<body>
+
+
+   <img class="rightImage" src="images/molangart.png">
+   <img class="leftImage" src="images/floating cat.gif">
+    
+      <section class="todo-container">
+
+         <section class="headerImage">
+              
+              <h2 class="titleName">Welcome Secret Agent! To Mission: Pile all the love on debs! No mercy!</h2>
+         </section>        
+
+
+         <section class="todo">
+                <form action="/" method="POST" class="todo-header"> 
+                    <input type="text" name="title" placeholder="your name/nickname/codename"> </input>
+
+                    <textarea rows="6" cols="45" name="content" placeholder="Say whatever your heart desires! A cute memory, something about her you love, something she did you appreciate, or even a fun lie! The sky's the limit."></textarea>
+                    <!---can directly interface with some CRUD content, without doing fetch ect, can send up path and method----->
+
+                    <input type="url" id="imageURL" name="imageURL" placeholder="Enter a url here for any image you want to upload :)"> 
+                    
+
+                    <button type="submit"><span class="fas fa-plus">Go forth my pretties! (submit)</button> <!----needs to be inside form-->                 
+                    
+                </form>
+
+                <section class="todo-list"> <!----creating an unordered list-->                 
+
+                            <% todoTasks.forEach(task=> {%> 
+                        <section class="todo-list-item"> 
+                             <div class="todo-list-item-title"> 
+                                <%= task.title %> 
+                             </div>   
+
+                             <div class="todo-list-item-content">  <!---i want to have content-->
+                                <%= task.content %> <!---ejs to help render the content, actually displaying something-->
+
+                            
+                             <!-----add a button to allow edits-->
+                             <a href="/edit/<%=task._id %>" class="edit"> 
+                              <span class="fas fa-edit"> </span>
+
+                             </a>
+                              <!------alert server we want to edit something, how to tell mongo we want to mess with THIS specific item we're clicking on? the id
+                              
+                              hey ejs grab the task._id, grab the task of the row we're currently on and send that back to the server as a path. And our server will be lisening for that.
+                              id is an an object, _id is a string------>
+
+
+                             <!----add a button to allow deletion
+
+                             <a href="/remove/<%=task._id %>" class="remove"> 
+                              <span class="fas fa-bomb"> </span>
+                             </a>  -->
+                        </section>
+
+                     </div>
+                     <img class="url-images" src="<%= task.imageURL %>" alt="image">
+                     <div class="url-photo">
+
+                     </div>
+                   <% }) %> <!---fixed the error-->
+                  </section>
+         </section>
+
+      </section>
+</body>
+
+</html>
