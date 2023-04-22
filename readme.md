@@ -1,3 +1,4 @@
+[friendapp-2.webm](https://user-images.githubusercontent.com/101692334/233770110-b3234b11-ac1e-4438-9ae6-ab5849fb8bec.webm)
 
 ##  How It's Made:
 
@@ -13,4 +14,4 @@ Utilized flex to make the todo container responsive. Utilized max-width and fixe
 
 How to use EJS. 
 
-When clicking the delete button, it would switch to showing JSON data. After checking server.js I noticed there was spacing within the code for the delete button. After deleting that spacing, it worked.
+When clicking the delete button, it would show JSON data. After checking server.js I noticed there was spacing within the code for the delete button. After deleting that spacing, it worked.
